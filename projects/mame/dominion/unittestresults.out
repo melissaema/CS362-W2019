@@ -351,7 +351,7 @@ PASS: Expected: 1, Actual: 1, isGameOver(): Test no empty province pile and 3 ot
 FAIL: Expected: 1, Actual: 0, isGameOver(): Test no empty province pile and 3 other empty supply piles (one is the last pile)
 PASS: Expected: 1, Actual: 1, isGameOver(): Test no empty province pile and 4 other empty supply piles
 
-Total Errors: 0
+Total Errors: 1
 
 --------End isGameOver() testing--------
 
