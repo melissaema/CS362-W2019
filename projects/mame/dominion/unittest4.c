@@ -47,34 +47,34 @@ int main() {
 	for (j = 0; j < treasure_map + 1; j++) {
 		G.supplyCount[j] = 10;
 	}
-	assertTrue(isGameOver(&G), 0, "isGameOver(): Test no empty piles");
+	errors += assertTrue(isGameOver(&G), 0, "isGameOver(): Test no empty piles");
 
 	// Test all empty piles
 	for (j = 0; j < treasure_map + 1; j++) {
 		G.supplyCount[j] = 0;
 	}
-	assertTrue(isGameOver(&G), 1, "isGameOver(): Test all empty piles");
+	errors += assertTrue(isGameOver(&G), 1, "isGameOver(): Test all empty piles");
 
 	// Test empty province pile and no other empty supply piles
 	for (j = 0; j < treasure_map + 1; j++) {
 		G.supplyCount[j] = 0;
 	}
 	G.supplyCount[province] = 0;
-	assertTrue(isGameOver(&G), 1, "isGameOver(): Test empty province pile and no other empty supply piles");
+	errors += assertTrue(isGameOver(&G), 1, "isGameOver(): Test empty province pile and no other empty supply piles");
 
 	// Test empty province pile and an empty supply pile
 	for (j = 0; j < treasure_map + 1; j++) {
 		G.supplyCount[j] = 0;
 	}
 	G.supplyCount[province] = 0;
-	assertTrue(isGameOver(&G), 1, "isGameOver(): Test empty province pile and an empty supply pile");
+	errors += assertTrue(isGameOver(&G), 1, "isGameOver(): Test empty province pile and an empty supply pile");
 
 	// Test no empty province pile and all other empty supply piles
 	for (j = 0; j < treasure_map + 1; j++) {
 		G.supplyCount[j] = 0;
 	}
 	G.supplyCount[province] = 10;
-	assertTrue(isGameOver(&G), 1, "isGameOver(): Test no empty province pile and all other empty supply piles");
+	errors += assertTrue(isGameOver(&G), 1, "isGameOver(): Test no empty province pile and all other empty supply piles");
 
 	// Test no empty province pile and 1 other empty supply pile
 	for (j = 0; j < treasure_map + 1; j++) {
@@ -82,7 +82,7 @@ int main() {
 	}
 	G.supplyCount[province] = 10;
 	G.supplyCount[duchy] = 0;
-	assertTrue(isGameOver(&G), 0, "isGameOver(): Test no empty province pile and 1 other empty supply pile");
+	errors += assertTrue(isGameOver(&G), 0, "isGameOver(): Test no empty province pile and 1 other empty supply pile");
 
 	// Test no empty province pile and 2 other empty supply piles
 	for (j = 0; j < treasure_map + 1; j++) {
@@ -91,7 +91,7 @@ int main() {
 	G.supplyCount[province] = 10;
 	G.supplyCount[duchy] = 0;
 	G.supplyCount[copper] = 0;
-	assertTrue(isGameOver(&G), 0, "isGameOver(): Test no empty province pile and 2 other empty supply piles");
+	errors += assertTrue(isGameOver(&G), 0, "isGameOver(): Test no empty province pile and 2 other empty supply piles");
 
 	// Test no empty province pile and 3 other empty supply piles
 	for (j = 0; j < treasure_map + 1; j++) {
@@ -101,7 +101,7 @@ int main() {
 	G.supplyCount[duchy] = 0;
 	G.supplyCount[copper] = 0;
 	G.supplyCount[estate] = 0;
-	assertTrue(isGameOver(&G), 1, "isGameOver(): Test no empty province pile and 3 other empty supply piles");
+	errors += assertTrue(isGameOver(&G), 1, "isGameOver(): Test no empty province pile and 3 other empty supply piles");
 	
 	// Test no empty province pile and 3 other empty supply piles (one is the first pile)
 	for (j = 0; j < treasure_map + 1; j++) {
@@ -111,7 +111,7 @@ int main() {
 	G.supplyCount[duchy] = 0;
 	G.supplyCount[copper] = 0;
 	G.supplyCount[curse] = 0;
-	assertTrue(isGameOver(&G), 1, "isGameOver(): Test no empty province pile and 3 other empty supply piles (one is the first pile)");
+	errors += assertTrue(isGameOver(&G), 1, "isGameOver(): Test no empty province pile and 3 other empty supply piles (one is the first pile)");
 
 
 	// Test no empty province pile and 3 other empty supply piles (one is the last pile)
@@ -122,7 +122,7 @@ int main() {
 	G.supplyCount[duchy] = 0;
 	G.supplyCount[copper] = 0;
 	G.supplyCount[treasure_map] = 0;
-	assertTrue(isGameOver(&G), 1, "isGameOver(): Test no empty province pile and 3 other empty supply piles (one is the last pile)");
+	errors += assertTrue(isGameOver(&G), 1, "isGameOver(): Test no empty province pile and 3 other empty supply piles (one is the last pile)");
 
 	// Test no empty province pile and 4 other empty supply piles
 	for (j = 0; j < treasure_map + 1; j++) {
@@ -133,7 +133,7 @@ int main() {
 	G.supplyCount[copper] = 0;
 	G.supplyCount[estate] = 0;
 	G.supplyCount[village] = 0;
-	assertTrue(isGameOver(&G), 1, "isGameOver(): Test no empty province pile and 4 other empty supply piles");
+	errors += assertTrue(isGameOver(&G), 1, "isGameOver(): Test no empty province pile and 4 other empty supply piles");
 	
 	printf("\nTotal Errors: %d\n", errors);
 
