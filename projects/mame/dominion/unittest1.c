@@ -23,7 +23,7 @@ int assertTrue(int a, int b, char *msg) {
 		return 0;
 	}
 	else {
-		printf("FAIL: Expected: %d, Actual: %d, %S\n", b, a, msg);
+		printf("FAIL: Expected: %d, Actual: %d, %s\n", b, a, msg);
 		return 1;
 	}
 }
