@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 /* -------------------------------------------------------------------------
  * This is an ANSI C library for multi-stream random number generation.  
  * The use of this library is recommended as a replacement for the ANSI C 
