@@ -653,7 +653,7 @@ void adventurerEffect(struct gameState *state) {
 	while(drawntreasure<2) {
 		// before bug:
 		// if (state->deckCount[currentPlayer] <1) {
-		if (state->deckCount[currentPlayer] <= 1) {//if the deck is empty we need to shuffle discard and add to deck
+		if (state->deckCount[currentPlayer] < 1) {//if the deck is empty we need to shuffle discard and add to deck
 			shuffle(currentPlayer, state);
 		}
 		
@@ -678,7 +678,7 @@ void smithyEffect(struct gameState *state, int handPos) {
 	
 	// before bug:
 	// for (int i = 0; i < 3; i++) {
-	for (int i = 0; i <= 3; i++) {
+	for (int i = 0; i < 3; i++) {
 		drawCard(currentPlayer, state);
 	}
 		
@@ -699,9 +699,9 @@ void council_roomEffect(struct gameState *state, int handPos) {
 	//Each other player draws a card
 	for (int i = 0; i < state->numPlayers; i++) {
 		// Bug: the if shouldn't be commented out
-		// if ( i != currentPlayer ) {
+		if ( i != currentPlayer ) {
 			drawCard(i, state);
-		// }
+		}
 	}
 	
 	//put played card in played card pile
